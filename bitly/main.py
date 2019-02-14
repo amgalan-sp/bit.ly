@@ -2,7 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 import argparse
-load_dotenv()
+
 
 def create_bitlink(long_url, api_token):
     url = 'https://api-ssl.bitly.com/v4/bitlinks'
@@ -32,6 +32,7 @@ def check_bitlink(api_token):
     return response.ok
 
 if __name__ == "__main__":
+    load_dotenv()
     parser = argparse.ArgumentParser()
     parser.add_argument("url", help="URL is the URL by which you want to create a bit link or get the total number of clicks")
     args = parser.parse_args()
